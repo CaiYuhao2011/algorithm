@@ -4,11 +4,9 @@
 
 主要目录结构（摘要）：
 
-- `algo/`：算法实现（如链表、优先队列等）。
-- `leetcode/`：LeetCode 练习解答（带示例运行脚本）。
-- `examples/`：演示与样例输入（例如 AST/JSX 示例）。
-- `babel/`：Babel 解析相关脚本（如 `babel/parser.js`）。
-- `output/`：解析或脚本输出（已在 `.gitignore` 中忽略）。
+- `leetcode/`：LeetCode 练习和数据结构实现（如链表、优先队列、哈希表等）。
+- `babel/`：Babel 解析相关脚本和输出文件夹。
+- `recursion/`：递归相关的示例代码（如数组遍历、阶乘等）。
 
 如何运行常见示例：
 
@@ -22,10 +20,14 @@ npm install
 node babel/parser.js
 ```
 
-- 运行 LeetCode 示例：
+- 运行数据结构示例：
 
 ```bash
-node leetcode/palindrome-linked-list.js
+# 运行优先队列示例
+node leetcode/PriorityQueue.js
+
+# 运行递归示例
+node recursion/factorial.js
 ```
 
 代理说明（摘要）
@@ -35,25 +37,28 @@ node leetcode/palindrome-linked-list.js
 - HTTP 代理: `http://127.0.0.1:7890`
 - HTTPS 代理: `https://127.0.0.1:7890`
 
-仓库级配置命令（示例）：
+仓库级配置命令（仅针对本仓库）：
 
 ```bash
-git config http.proxy http://127.0.0.1:7890
-git config https.proxy https://127.0.0.1:7890
+git config --local http.proxy http://127.0.0.1:7890
+git config --local https.proxy https://127.0.0.1:7890
 ```
 
 撤销代理：
 
 ```bash
-git config --unset http.proxy
-git config --unset https.proxy
+git config --local --unset http.proxy
+git config --local --unset https.proxy
 ```
 
-更多详细的中文说明见 `代理说明.md`。
+## 开源协议
 
-贡献与许可
+本项目采用 **ISC License** 开源协议。
 
-欢迎基于该仓库学习和改进。仓库使用默认 MIT/ISC 等许可（参见 `package.json`）。
+ISC 许可证是一个宽松的开源许可证，允许你自由地使用、复制、修改和分发本项目的代码，无论是用于商业还是非商业目的，只需保留版权声明即可。
 
----
-（文件由仓库脚本生成或更新，若需更改可直接编辑该 README）
+详细许可内容请查看 [LICENSE](./LICENSE) 文件。
+
+## 贡献
+
+欢迎基于该仓库学习和改进。如有问题或建议，欢迎提出 Issue 或 Pull Request。
