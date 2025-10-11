@@ -66,7 +66,7 @@ class PriorityQueue {
 
     /**
      * 上浮
-     * @param {*} index 
+     * @param {*} index
      */
     swim(index) {
         while(index > 0 && this.comparator(this.heap[this.parent(index)], this.heap[index]) > 0) {
@@ -78,7 +78,7 @@ class PriorityQueue {
 
     /**
      * 下沉
-     * @param {*} index 
+     * @param {*} index
      */
     sink(index) {
         while(this.left(index) < this.size || this.right(index) < this.size) {
@@ -99,7 +99,7 @@ class PriorityQueue {
 
     /**
      * 调整堆大小
-     * @param {*} capacity 
+     * @param {*} capacity
      */
     resize(capacity) {
         const newHeap = new Array(capacity).fill(undefined);
