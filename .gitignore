@@ -26,3 +26,5 @@ logs/
 # Misc
 coverage/
 .env
+
+.lcpr_data/
