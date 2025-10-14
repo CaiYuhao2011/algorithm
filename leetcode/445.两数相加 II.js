@@ -15,17 +15,30 @@
  */
 
 // 定义一个方法翻转链表
+// 递归
+// function reverseList(head) {
+//     if (head.next == null) {
+//         return head;
+//     }
+
+//     const last = reverseList(head.next);
+//     // 后序遍历
+//     head.next.next = head;
+//     head.next = null;
+
+//     return last;
+// }
+// 常规
 function reverseList(head) {
-    if (head.next) {
-        return head;
+    let pre = null;
+    let cur = head;
+    while(cur != null) {
+        const tmp = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = tmp;
     }
-
-    const last = reverseList(head.next);
-    // 后序遍历
-    head.next.next = head;
-    head.next = null;
-
-    return last;
+    return pre;
 }
 
 // 解法一：翻转链表（示例代码）
@@ -35,15 +48,36 @@ function reverseList(head) {
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function(l1, l2) {
-    l1 = reverseList(l1);
-    l2 = reverseList(l2);
+var addTwoNumbers = function (l1, l2) {
+    const list1 = reverseList(l1);
+    const list2 = reverseList(l2);
+    let p1 = list1;
+    let p2 = list2;
+    let p = null;
 
-    
+    // 余数
+    let carry = 0;
+    while (p1 != null || p2 != null || carry > 0) {
+        let val = carry;
+        if (p1 != null) {
+            val += p1.val;
+            p1 = p1.next;
+        }
+        if (p2 != null) {
+            val += p2.val;
+            p2 = p2.next;
+        }
+        // 求余数
+        carry = (val / 10) | 0;
+        val = val % 10;
+        const node = new ListNode(val);
+        node.next = p;
+        p = node;
+    }
+
+    return p;
 };
 // @lc code=end
-
-
 
 /*
 // @lcpr case=start
@@ -59,4 +93,3 @@ var addTwoNumbers = function(l1, l2) {
 // @lcpr case=end
 
  */
-

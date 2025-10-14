@@ -8,15 +8,27 @@ function ListNode(val, next) {
  * @param {ListNode} head
  * @returns
  */
+// function reverseList(head) {
+//     if (head.next == null) {
+//         return head;
+//     }
+
+//     const last = reverseList(head.next);
+//     head.next.next = head;
+//     head.next = null;
+//     return last;
+// }
 function reverseList(head) {
-    if (head.next == null) {
-        return head;
+    let pre = null;
+    let cur = head;
+    while (cur != null) {
+        const tmp = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = tmp;
     }
 
-    const last = reverseList(head.next);
-    head.next.next = head;
-    head.next = null;
-    return last;
+    return pre;
 }
 
 // 创建链表
